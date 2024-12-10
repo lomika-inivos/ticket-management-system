@@ -1,4 +1,6 @@
-package org.iit.oop;
+package org.iit.oop.model;
+
+import org.iit.oop.operation.TicketPool;
 
 public class Vendor implements Runnable {
     private final int totalTickets;

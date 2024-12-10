@@ -1,5 +1,9 @@
 package org.iit.oop;
 
+import org.iit.oop.config.Config;
+import org.iit.oop.operation.CommandProcessor;
+import org.iit.oop.operation.TicketOperationManager;
+
 import java.io.File;
 import java.util.Scanner;
 

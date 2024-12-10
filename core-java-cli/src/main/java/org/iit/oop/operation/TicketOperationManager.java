@@ -1,4 +1,8 @@
-package org.iit.oop;
+package org.iit.oop.operation;
+
+import org.iit.oop.config.Config;
+import org.iit.oop.model.Customer;
+import org.iit.oop.model.Vendor;
 
 import java.io.IOException;
 import java.util.ArrayList;

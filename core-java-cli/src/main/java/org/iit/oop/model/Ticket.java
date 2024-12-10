@@ -1,4 +1,4 @@
-package org.iit.oop;
+package org.iit.oop.model;
 
 
 public class Ticket {

@@ -1,4 +1,4 @@
-package org.iit.oop;
+package org.iit.oop.operation;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

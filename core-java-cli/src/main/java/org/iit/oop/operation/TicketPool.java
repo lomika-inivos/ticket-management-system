@@ -1,6 +1,8 @@
-package org.iit.oop;
+package org.iit.oop.operation;
 
 //import java.util.LinkedList;
+import org.iit.oop.model.Ticket;
+
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;

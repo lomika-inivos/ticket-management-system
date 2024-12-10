@@ -1,4 +1,4 @@
-package org.iit.oop;
+package org.iit.oop.utils;
 
 import java.util.Scanner;
 

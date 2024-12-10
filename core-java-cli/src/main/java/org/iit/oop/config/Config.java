@@ -1,4 +1,4 @@
-package org.iit.oop;
+package org.iit.oop.config;
 
 import com.google.gson.Gson;
 
@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static org.iit.oop.validation.getValidInput;
+import static org.iit.oop.utils.validation.getValidInput;
 
 public class Config {
     private int vendorCount;
