@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d5acd79-36ed-4d9e-b8e8-c8ca26eeebb1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/operation/CommandProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/TicketOperationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/operation/TicketOperationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/TicketPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/operation/TicketPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/Vendor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/model/Vendor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iit/oop/validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iit/oop/utils/validation.java" afterDir="false" />
-    </list>
+    <list default="true" id="5d5acd79-36ed-4d9e-b8e8-c8ca26eeebb1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733747265270</updated>
-      <workItem from="1733747266236" duration="38960000" />
+      <workItem from="1733747266236" duration="39068000" />
     </task>
     <servers />
   </component>
