@@ -12,25 +12,12 @@ import static org.iit.oop.validation.getValidInput;
 public class Config {
     private int vendorCount;
     private int customerCount;
+    private int ticketsPerCustomer;
     private int maxTicketCapacity;
     private int totalTickets;
     private int ticketReleaseRate;
     private int customerRetrievalRate;
 
-
-//    public Config(int vendorCount, int customerCount, int maxTicketCapacity, int totalTickets, int ticketReleaseRate, int customerRetrievalRate) {
-//        this.vendorCount = vendorCount;
-//        this.customerCount = customerCount;
-//        this.maxTicketCapacity = maxTicketCapacity;
-//        this.totalTickets = totalTickets;
-//        this.ticketReleaseRate = ticketReleaseRate;
-//        this.customerRetrievalRate = customerRetrievalRate;
-//        saveToFile();
-//    }
-
-//    public Config() {
-////        loadFromFile();
-//    }
 
     public int getVendorCount() {
         return vendorCount;
@@ -56,6 +43,10 @@ public class Config {
         return customerRetrievalRate;
     }
 
+    public int getTicketsPerCustomer() {
+        return ticketsPerCustomer;
+    }
+
 
     private void saveToFile() {
         try (FileWriter writer = new FileWriter("config.json")) {
@@ -74,6 +65,7 @@ public class Config {
             if (loadedConfig != null) {
                 this.vendorCount = loadedConfig.vendorCount;
                 this.customerCount = loadedConfig.customerCount;
+                this.ticketsPerCustomer =loadedConfig.ticketsPerCustomer;
                 this.maxTicketCapacity = loadedConfig.maxTicketCapacity;
                 this.totalTickets = loadedConfig.totalTickets;
                 this.ticketReleaseRate = loadedConfig.ticketReleaseRate;
@@ -87,8 +79,9 @@ public class Config {
 
     public void configureSystem(Scanner scanner) {
         System.out.println("=====System Configurations====");
-        this.vendorCount = getValidInput(scanner, "Enter no. of Vendors want to create: ");
-        this.customerCount = getValidInput(scanner, "Enter no. of Customers want to create: ");
+        this.vendorCount = getValidInput(scanner, "Enter no. of vendors want to create: ");
+        this.customerCount = getValidInput(scanner, "Enter no. of customers want to create: ");
+        this.ticketsPerCustomer = getValidInput(scanner, "Enter no. of tickets per customer: ");
         this.totalTickets = getValidInput(scanner, "Enter total tickets: ");
         this.ticketReleaseRate = getValidInput(scanner, "Enter ticket release rate: ");
         this.customerRetrievalRate = getValidInput(scanner, "Enter customer retrieval rate: ");

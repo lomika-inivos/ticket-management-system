@@ -1,37 +1,20 @@
 package org.iit.oop;
 
 public class Customer implements Runnable{
-    private int customerId;
-    private int customerRetrievalRate;
-    private int numberOfTickets;
-    private TicketPool ticketPool;
+    private final int customerRetrievalRate;
+    private final int numberOfTickets;
+    private final TicketPool ticketPool;
 
-    public Customer(int customerId, int customerRetrievalRate, TicketPool ticketPool) {
-        this.customerId = customerId;
+    public Customer(int customerRetrievalRate, int numberOfTickets, TicketPool ticketPool) {
         this.customerRetrievalRate = customerRetrievalRate;
-//        this.numberOfTickets = numberOfTickets;
+        this.numberOfTickets = numberOfTickets;
         this.ticketPool = ticketPool;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public int getCustomerRetrievalRate() {
-        return customerRetrievalRate;
-    }
-
-    public int getNumberOfTickets() {
-        return numberOfTickets;
-    }
-
-    public TicketPool getTicketPool() {
-        return ticketPool;
-    }
 
     @Override
     public void run() {
-//        for (int i = 1; i <= numberOfTickets; i++) {
+        for (int i = 1; i <= numberOfTickets; i++) {
             Ticket ticket = ticketPool.buyTicket();
             System.out.println(Thread.currentThread().getName() + " bought " + ticket);
             try {
@@ -40,5 +23,5 @@ public class Customer implements Runnable{
                 Thread.currentThread().interrupt();
             }
         }
-//    }
+    }
 }

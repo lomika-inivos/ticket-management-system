@@ -29,7 +29,7 @@ public class TicketOperationManager {
 
         // Start vendor threads
         for (int i = 0; i < config.getVendorCount(); i++) {
-            Vendor vendor = new Vendor(i + 1, config.getTotalTickets(), config.getTicketReleaseRate(), ticketPool);
+            Vendor vendor = new Vendor(config.getTotalTickets(), config.getTicketReleaseRate(), ticketPool);
             Thread vendorThread = new Thread(vendor, "Vendor " + (i + 1));
             vendorThreads.add(vendorThread);
             vendorThread.start();
@@ -37,7 +37,7 @@ public class TicketOperationManager {
 
         // Start customer threads
         for (int i = 0; i < config.getCustomerCount(); i++) {
-            Customer customer = new Customer(i + 1, config.getCustomerRetrievalRate(), ticketPool);
+            Customer customer = new Customer(config.getCustomerRetrievalRate(), config.getTicketsPerCustomer(), ticketPool);
             Thread customerThread = new Thread(customer, "Customer " + (i + 1));
             customerThreads.add(customerThread);
             customerThread.start();

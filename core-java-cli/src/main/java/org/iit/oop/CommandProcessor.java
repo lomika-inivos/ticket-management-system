@@ -16,7 +16,7 @@ public class CommandProcessor {
         while (true) {
             if(operationManager.isRunning()){
                 return;
-            };
+            }
             System.out.println("\nAvailable Commands:");
             System.out.println("1. Start ticket operations");
             System.out.println("3. Exit the system");
