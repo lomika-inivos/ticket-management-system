@@ -2,6 +2,16 @@ import React from "react";
 import { startSystem, stopSystem } from "../services/api";
 import TicketCount from "./TicketCount";
 
+/**
+ * Controls component for managing the start and stop actions of a system.
+ *
+ * @param {Object} props - The properties object.
+ * @param {boolean} props.systemRunning - Indicates whether the system is currently running.
+ * @param {Function} props.onSystemStart - Callback function to be called when the system starts.
+ * @param {Function} props.onSystemStop - Callback function to be called when the system stops.
+ *
+ * @returns {JSX.Element} The rendered Controls component.
+ */
 const Controls = ({ systemRunning, onSystemStart, onSystemStop }) => {
   const handleStart = async () => {
     try {

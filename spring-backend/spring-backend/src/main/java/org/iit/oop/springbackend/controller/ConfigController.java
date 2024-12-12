@@ -15,23 +15,48 @@ import java.util.Map;
 public class ConfigController {
     private final ConfigService configService;
 
+    /**
+     * Constructor for ConfigController.
+     * @param configService the service to handle configuration logic
+     */
     @Autowired
     public ConfigController(ConfigService configService) {
         this.configService = configService;
     }
 
+    /**
+     * Endpoint to get the current configuration.
+     * @return the current configuration
+     * @throws IOException if an I/O error occurs
+     */
     @GetMapping()
     public Config getConfig() throws IOException {
+        // Retrieve and return the current configuration
         return configService.getConfig();
-//        return new Config();
     }
 
+    /**
+     * Endpoint to update the system configuration.
+     * @param config the new configuration to be applied
+     * @return a response message indicating the result of the operation
+     * @throws IOException if an I/O error occurs
+     */
     @PostMapping()
     public Map<String, String> configureSystem(@RequestBody Config config) throws IOException {
-        configService.configureSystem(config.getVendorCount(), config.getCustomerCount(), config.getTicketsPerCustomer(), config.getMaxTicketCapacity(), config.getTotalTickets(), config.getTicketReleaseRate(), config.getCustomerRetrievalRate());
+        // Update the system configuration with the provided values
+        configService.configureSystem(
+            config.getVendorCount(), 
+            config.getCustomerCount(), 
+            config.getTicketsPerCustomer(), 
+            config.getMaxTicketCapacity(), 
+            config.getTotalTickets(), 
+            config.getTicketReleaseRate(), 
+            config.getCustomerRetrievalRate()
+        );
+        
+        // Prepare and return a response message
         Map<String, String> response = new HashMap<>();
         response.put("message", "Configuration updated successfully");
         return response;
     }
-
 }
