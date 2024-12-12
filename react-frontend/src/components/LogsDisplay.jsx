@@ -26,7 +26,7 @@ const LogsDisplay = () => {
   }, []);
 
   return (
-    <div style={{ maxHeight: "300px", overflowY: "auto", border: "1px solid #ddd", borderRadius: "5px", padding: "10px", backgroundColor: "#f8f9fa" }}>
+    <div style={{ maxHeight: "700px", overflowY: "auto", border: "1px solid #ddd", borderRadius: "5px", padding: "10px", backgroundColor: "#f8f9fa" }}>
       {logs.length === 0 ? (
         <p>No logs available yet.</p>
       ) : (

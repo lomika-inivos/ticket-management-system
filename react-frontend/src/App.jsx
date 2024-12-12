@@ -49,7 +49,6 @@ const App = () => {
                 </div>
               ) : null}
                 <ConfigureForm
-                  onSystemStart={handleSystemStart}
                   setCurrentConfig={setCurrentConfig}
                 />
             </div>

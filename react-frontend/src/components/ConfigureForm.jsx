@@ -15,7 +15,7 @@ import { saveConfig } from "../services/api";
  * 
  * @returns {JSX.Element} The rendered ConfigureForm component.
  */
-const ConfigureForm = ({ onSystemStart, setCurrentConfig }) => {
+const ConfigureForm = ({ setCurrentConfig }) => {
   const initialValues = {
     vendorCount: 1,
     customerCount: 1,
@@ -39,8 +39,8 @@ const ConfigureForm = ({ onSystemStart, setCurrentConfig }) => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       await saveConfig(values);
+      alert("Configuration set successfully!");
       setCurrentConfig(values); // Update current config
-      onSystemStart();
     } catch (error) {
       alert("Failed to start the system: " + error.message);
     } finally {
