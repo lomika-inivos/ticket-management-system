@@ -24,6 +24,7 @@ export const connectToWebSocket = (topic, callback, isFromlogs) => {
             return;
           }
           const data = JSON.parse(message.body); // Parse the JSON body
+          
 
           callback(data); // Pass the parsed data to the callback
         } catch (error) {
