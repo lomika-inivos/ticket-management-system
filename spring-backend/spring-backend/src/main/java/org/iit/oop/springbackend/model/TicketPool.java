@@ -1,6 +1,7 @@
 package org.iit.oop.springbackend.model;
 
 import org.iit.oop.springbackend.service.LoggingService;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -10,20 +11,20 @@ public class TicketPool {
     private final int maxCapacity;
     private final Queue<Ticket> tickets;
     private final AtomicInteger ticketIdGenerator;
+    private final SimpMessagingTemplate messagingTemplate;
+    private final LoggingService loggingService;
 
-    LoggingService loggingService = new LoggingService();
-
-
-    public TicketPool(int maxCapacity) {
+    public TicketPool(int maxCapacity, SimpMessagingTemplate messagingTemplate, LoggingService loggingService) {
         this.maxCapacity = maxCapacity;
-        tickets = new ConcurrentLinkedQueue<>();
+        this.messagingTemplate = messagingTemplate;
+        this.loggingService = loggingService;
+        this.tickets = new ConcurrentLinkedQueue<>();
         this.ticketIdGenerator = new AtomicInteger(1);
-
     }
-    // This method is gonna called by the vendor
+
+    // Called by the vendor
     public synchronized void addTicket(double ticketPrice, String eventName) {
-        while (tickets.size() >= maxCapacity) { // Maximum capacity is reached so vendor won't be able to add new ticket
-            // This method will called by the vendor to add tickets to the queue
+        while (tickets.size() >= maxCapacity) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -35,10 +36,12 @@ public class TicketPool {
         Ticket ticket = new Ticket(ticketId, ticketPrice, eventName);
         tickets.add(ticket);
         loggingService.info(Thread.currentThread().getName() + " added ticket: " + ticket);
+        sendLogToFrontend(Thread.currentThread().getName() + " added ticket: " + ticket);
+        sendUpdates();
         notifyAll();
     }
 
-    // This method is gonna called by the customer
+    // Called by the customer
     public synchronized Ticket buyTicket() {
         while (tickets.isEmpty()) {
             try {
@@ -49,8 +52,20 @@ public class TicketPool {
             }
         }
         Ticket ticket = tickets.poll();
+        loggingService.info(Thread.currentThread().getName() + " bought ticket: " + ticket);
+        sendLogToFrontend(Thread.currentThread().getName() + " bought ticket: " + ticket);
+        sendUpdates();
         notifyAll();
         return ticket;
     }
 
+    private void sendUpdates() {
+        // Broadcast ticket count to WebSocket topic
+        messagingTemplate.convertAndSend("/topic/ticket-count", tickets.size());
+        loggingService.debug("Live ticket count updated: " + tickets.size());
+    }
+
+    private void sendLogToFrontend(String log) {
+        messagingTemplate.convertAndSend("/topic/logs", log);
+    }
 }

@@ -25,6 +25,7 @@ public class Customer implements Runnable{
                 Thread.sleep(customerRetrievalRate * 1000L);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+                loggingService.info(Thread.currentThread().getName() + " stopped.");
             }
         }
     }
